@@ -17,8 +17,6 @@ public:
 	virtual void BeginPlay() override;
 	virtual void StartMatch() override;
 	virtual void PostLogin(APlayerController* NewPlayer) override;
-
-	// --- FUNCIÓN DEL ÁRBITRO ---
 	void VerificarGanador(class ADueloCharacter* Atacante, class ADueloCharacter* Victima);
 
 protected:

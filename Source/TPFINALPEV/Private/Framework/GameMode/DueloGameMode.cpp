@@ -3,7 +3,7 @@
 #include "Framework/GameMode/DueloGameMode.h"
 #include "Framework/GameMode/DueloGameState.h"
 #include "Framework/GameMode/DueloPlayerState.h"
-#include "DueloCharacter.h" // Necesario para llamar al RPC de la UI
+#include "DueloCharacter.h" 
 
 ADueloGameMode::ADueloGameMode()
 {
@@ -43,7 +43,7 @@ void ADueloGameMode::PostLogin(APlayerController* NewPlayer)
 	}
 }
 
-// --- IMPLEMENTACIÓN DEL ÁRBITRO ---
+
 void ADueloGameMode::VerificarGanador(ADueloCharacter* Atacante, ADueloCharacter* Victima)
 {
 	if (!Atacante || !Victima) return;
@@ -57,11 +57,11 @@ void ADueloGameMode::VerificarGanador(ADueloCharacter* Atacante, ADueloCharacter
 			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, TEXT("¡K.O.! PARTIDA FINALIZADA POR EL GAMEMODE."));
 		}
 
-		// 1. Avisamos a cada pantalla de forma privada
+		// Avisamos a cada pantalla de forma privada
 		Atacante->Client_TerminarPartida(true);
 		Victima->Client_TerminarPartida(false);
 
-		// 2. Destruimos al perdedor. Como tu cámara es fija en el nivel, la vista quedará perfecta.
+		// Destruimos al perdedor
 		Victima->SetLifeSpan(0.2f);
 	}
 }

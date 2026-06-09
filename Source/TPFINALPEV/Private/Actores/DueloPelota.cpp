@@ -8,7 +8,7 @@
 #include "DueloCharacter.h" 
 #include "Framework/GameMode/DueloGameState.h" 
 #include "Framework/GameMode/DueloPlayerState.h" 
-#include "Framework/GameMode/DueloGameMode.h" // ¡NUEVO INCLUDE NECESARIO!
+#include "Framework/GameMode/DueloGameMode.h" 
 
 ADueloPelota::ADueloPelota()
 {
@@ -125,7 +125,7 @@ void ADueloPelota::AlSuperponerse(UPrimitiveComponent* OverlappedComponent, AAct
 								GS->PorcentajeCanchaA = (float)PS_Atacante->PuntosVitales / 2500.0f;
 							}
 
-							// --- DELEGAMOS LA VICTORIA AL GAMEMODE ---
+							
 							ADueloGameMode* GM = GetWorld()->GetAuthGameMode<ADueloGameMode>();
 							if (GM)
 							{
@@ -153,7 +153,7 @@ void ADueloPelota::AlRebotar(const FHitResult& ImpactResult, const FVector& Impa
 			// avisamos a  los clientes que reproduzcan la vibración 
 			Multicast_EfectoImpactoPared();
 		}
-	}
+	} 
 }
 
 void ADueloPelota::Multicast_EfectoImpactoJugador_Implementation()

@@ -98,7 +98,7 @@ void ADueloCharacter::Server_EjecutarDash_Implementation(FVector Direccion)
 
 	LaunchCharacter(Impulso, true, true);
 
-	// Iniciamos un timer en el servidor para apagar la invulnerabilidad 
+	// timer en el servidor para apagar la invulnerabilidad 
 	FTimerHandle TimerDashServer;
 	GetWorldTimerManager().SetTimer(TimerDashServer, this, &ADueloCharacter::ResetearDash, 1.0f, false);
 }
@@ -140,9 +140,9 @@ void ADueloCharacter::AlGolpearPelota(UPrimitiveComponent* OverlappedComponent, 
 	}
 }
 
-// --- SISTEMA DE VICTORIA Y DERROTA ---
+//VICTORIA Y DERROTA
 void ADueloCharacter::Client_TerminarPartida_Implementation(bool bEsGanador)
 {
-	// Disparamos el nodo rojo en el Blueprint
+	// nodo rojo en el Blueprint
 	BP_MostrarPantallaFinal(bEsGanador);
 }
